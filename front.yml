@@ -42,7 +42,7 @@ metadata:
   name: frontend-service
 
 spec:
-  type: ClusterIP
+  type: NodePort
 
   selector:
     app: node
@@ -51,3 +51,4 @@ spec:
   - protocol: TCP
     port: 3000
     targetPort: 3000
+    nodePort: 30080
