@@ -7,7 +7,7 @@ front:
 
   containerport: 3000
 
-  service-type: ClusterIP
+  service-type: NodePort
 
   serviceport: 3000
 
