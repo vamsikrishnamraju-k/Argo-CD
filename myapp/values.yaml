@@ -1,5 +1,5 @@
 front:
-  replicaCount: 3
+  replicaCount: 1
 
   image:
     repository: vamsikrishnamraju/travel
@@ -17,7 +17,7 @@ front:
 
   
 back:
-  replicaCount: 3
+  replicaCount: 1
 
   image:
     repository: vamsikrishnamraju/train
