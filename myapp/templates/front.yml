@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: frontend
+
+
+spec:
+  replicas: {{ .Values.front.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: node
+
+  template:
+    metadata:
+      labels:
+        app: node
+
+    spec:
+      containers:
+      - name: node-container
+        image: "{{ .Values.front.image.repository }}:{{ .Values.front.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.front.containerport }}
+      
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "100Mi"
+          limits:
+            cpu: "200m"
+            memory: "200Mi"  
+
+
+
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: frontend-service
+
+spec:
+  type: {{ index .Values.front "service-type" }}
+
+  selector:
+    app: node
+
+  ports:
+  - protocol: TCP
+    port: {{ .Values.front.serviceport }}
+    targetPort: {{ .Values.front.targetport  }}

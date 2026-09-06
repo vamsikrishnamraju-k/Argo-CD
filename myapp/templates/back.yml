@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend
+
+spec:
+  replicas: {{ .Values.back.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: python
+
+  template:
+    metadata:
+      labels:
+        app: python
+
+    spec:
+      containers:
+      - name: python-container
+        image: "{{ .Values.back.image.repository }}:{{ .Values.back.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.back.containerport }}
+
+---
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: train-service
+
+spec:
+  type: {{ index .Values.back "service-type" }}
+
+  selector:
+    app: python
+
+  ports:
+  - protocol: TCP
+    port: {{ .Values.back.serviceport }}
+    targetPort: {{ .Values.back.targetport }}

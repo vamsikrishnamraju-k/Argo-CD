@@ -1,0 +1,29 @@
+front:
+  replicaCount: 2
+
+  image:
+    repository: vamsikrishnamraju/travel
+    tag: v1
+
+  containerport: 3000
+
+  service-type: ClusterIP
+
+  serviceport: 3000
+
+  targetport: 3000
+
+back:
+  replicaCount: 2
+
+  image:
+    repository: vamsikrishnamraju/train
+    tag: v1
+
+  containerport: 5001
+
+  service-type: ClusterIP
+
+  serviceport: 5001
+
+  targetport: 5001
