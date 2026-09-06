@@ -7,13 +7,13 @@ front:
 
   containerport: 3000
 
-  service-type: NodePort
+  service-type: ClusterIP
 
   serviceport: 3000
 
   targetport: 3000
 
-  nodeport: 30080
+  nodeport: 31111
 
   
 back:
