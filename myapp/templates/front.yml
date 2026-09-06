@@ -51,4 +51,4 @@ spec:
   - protocol: TCP
     port: {{ .Values.front.serviceport }}
     targetPort: {{ .Values.front.targetport  }}
-    nodeport: 30001
+    nodeport: {{ .Values.front.nodeport }}
