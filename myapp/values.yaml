@@ -1,5 +1,5 @@
 front:
-  replicaCount: 2
+  replicaCount: 3
 
   image:
     repository: vamsikrishnamraju/travel
@@ -14,7 +14,7 @@ front:
   targetport: 3000
 
 back:
-  replicaCount: 2
+  replicaCount: 3
 
   image:
     repository: vamsikrishnamraju/train
