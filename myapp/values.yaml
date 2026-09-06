@@ -13,6 +13,9 @@ front:
 
   targetport: 3000
 
+  nodeport: 30080
+
+  
 back:
   replicaCount: 3
 
